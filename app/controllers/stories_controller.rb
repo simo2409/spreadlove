@@ -8,5 +8,7 @@ class StoriesController < ApplicationController
   end
 
   def show
+    @story = current_user.stories.where(:id => params[:id]).first
+    @facts = @story.facts.includes(:actor).order(:date_from => :desc)
   end
 end

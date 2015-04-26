@@ -24,7 +24,7 @@
           </button>
           <ul class="dropdown-menu" role="menu">
             <li>
-              <a href="#">
+              <a href="#" data-toggle="modal" data-target="#surprise-modal">
                 <span class="glyphicon glyphicon-gift"></span>
                 Surprise
               </a>
@@ -68,4 +68,105 @@
   </div>
 <%- end -%>
 
-<div class="row"><div class="col-md-12"><div class="timeline"><dl><dt>Apr 2014</dt><dd class="pos-right clearfix"><div class="circ"></div><div class="time">Apr 14</div><div class="events"><div class="pull-left"><img class="events-object img-rounded" src="img/photo-1.jpg"></div><div class="events-body"><h4 class="events-heading">Bootstrap</h4><p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p></div></div></dd><dd class="pos-left clearfix"><div class="circ"></div><div class="time">Apr 10</div><div class="events"><div class="pull-left"><img class="events-object img-rounded" src="img/photo-2.jpg"></div><div class="events-body"><h4 class="events-heading">Bootflat</h4><p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p></div></div></dd><dt>Mar 2014</dt><dd class="pos-right clearfix"><div class="circ"></div><div class="time">Mar 15</div><div class="events"><div class="pull-left"><img class="events-object img-rounded" src="img/photo-3.jpg"></div><div class="events-body"><h4 class="events-heading">Flat UI</h4><p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p></div></div></dd><dd class="pos-left clearfix"><div class="circ"></div><div class="time">Mar 8</div><div class="events"><div class="pull-left"><img class="events-object img-rounded" src="img/photo-4.jpg"></div><div class="events-body"><h4 class="events-heading">UI design</h4><p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p></div></div></dd></dl></div></div></div>
+<div class="row">
+  <div class="col-md-12">
+    <%- if @facts.any? -%>
+      <div class="timeline">
+        <dl>
+          <%-
+            old_month = nil
+            class_pos = nil
+          -%>
+          <%- @facts.each_with_index do |fact, i| -%>
+            <%-
+              old_month ||= fact.date_from.month
+              class_pos = (class_pos == 'pos-left' ? 'pos-right' : 'pos-left')
+            -%>
+            <%- if old_month != fact.date_from.month || i==0 -%>
+              <dt><%= fact.date_from.strftime('%b %Y') %></dt>
+            <%- end -%>
+            <dd class="<%= raw(class_pos) %> clearfix">
+              <div class="circ"></div>
+              <div class="time"><%= fact.date_from.strftime('%-d %b') %></div>
+              <div class="events">
+                <div class="pull-left">
+                  <%- if fact.actor -%>
+                    <img class="events-object img-rounded" src="https://placehold.it/50x50">
+                  <%- else -%>
+                    <%# No actor, use fact's image %>
+                    <span class="events-object glyphicon glyphicon-gift img-rounded btn-lg" style="background-color: #CCC;"></span>
+                  <%- end -%>
+                </div>
+                <div class="events-body">
+                  <h4 class="events-heading">
+                    <%= fact.kind.capitalize %>
+                    <p class="pull-right">#<%= fact.id %></p>
+                  </h4>
+                  <p><%= fact.description %></p>
+                </div>
+              </div>
+            </dd>
+          <%- end -%>
+          <!-- <dt>Apr 2014</dt>
+          <dd class="pos-right clearfix">
+            <div class="circ"></div>
+            <div class="time">Apr 14</div>
+            <div class="events">
+              <div class="pull-left">
+                <img class="events-object img-rounded" src="img/photo-1.jpg">
+              </div>
+              <div class="events-body">
+                <h4 class="events-heading">Bootstrap</h4>
+                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p>
+              </div>
+            </div>
+          </dd>
+          <dd class="pos-left clearfix">
+            <div class="circ"></div>
+            <div class="time">Apr 10</div>
+            <div class="events">
+              <div class="pull-left">
+                <img class="events-object img-rounded" src="img/photo-2.jpg">
+              </div>
+              <div class="events-body">
+                <h4 class="events-heading">Bootflat</h4>
+                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p>
+              </div>
+            </div>
+          </dd>
+          <dt>Mar 2014</dt>
+          <dd class="pos-right clearfix">
+            <div class="circ"></div>
+            <div class="time">Mar 15</div>
+            <div class="events">
+              <div class="pull-left">
+                <img class="events-object img-rounded" src="img/photo-3.jpg">
+              </div>
+              <div class="events-body">
+                <h4 class="events-heading">Flat UI</h4>
+                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p>
+              </div>
+            </div>
+          </dd>
+          <dd class="pos-left clearfix">
+            <div class="circ"></div>
+            <div class="time">Mar 8</div>
+            <div class="events">
+              <div class="pull-left">
+                <img class="events-object img-rounded" src="img/photo-4.jpg">
+              </div>
+              <div class="events-body">
+                <h4 class="events-heading">UI design</h4>
+                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p>
+              </div>
+            </div>
+          </dd> -->
+        </dl>
+      </div>
+    <%- else -%>
+      <p class="text-center">You did not put any love into this page :(</p>
+    <%- end -%>
+  </div>
+</div>
+
+<%= render partial: 'facts/all_modals', locals: {:story => @story} %>

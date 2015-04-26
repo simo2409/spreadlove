@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426130417) do
+ActiveRecord::Schema.define(version: 20150426155958) do
+
+  create_table "facts", force: :cascade do |t|
+    t.integer  "story_id",    limit: 4,     null: false
+    t.datetime "date_from",                 null: false
+    t.datetime "date_to"
+    t.integer  "kind",        limit: 4,     null: false
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "actor_id",    limit: 4
+  end
 
   create_table "stories", force: :cascade do |t|
     t.integer  "private",    limit: 4, default: 0

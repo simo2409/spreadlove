@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   
   # Relations
     has_and_belongs_to_many :stories
+    has_many :facts, foreign_key: :actor_id
   # Filters
   
   # Validations
@@ -22,6 +23,10 @@ class User < ActiveRecord::Base
   ### Instance methods
     def create_new_story!
       self.stories.create!
+    end
+
+    def full_name
+      self.first_name + ' ' + self.last_name
     end
   ### END instance methods
   

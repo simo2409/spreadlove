@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :stories, :only => [:create, :show]
+  resources :stories, :only => [:create, :show] do
+    resources :facts, :only => [:create, :update, :destroy]
+  end
 
   devise_for :users
   root to: "publics#home"

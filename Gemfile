@@ -35,6 +35,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rspec-rails', '3.2.1'
 gem 'devise', '3.4.1'
 gem 'bootstrap-sass', '~> 3.3.4'
+gem 'simple_form', '3.1.0'
+gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'quiet_assets', '1.1.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name]
   end
+
+  def page_404
+    render(text: 'Not found', status: 404) && false
+  end
 end

@@ -1,0 +1,29 @@
+<div class="modal fade" id="surprise-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Surprise</h4>
+      </div>
+      <%= simple_form_for [story, story.facts.new], html: { class: 'form-horizontal' } do |f| %>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+              <%= f.association :actor, collection: @story.users, label_method: :full_name, value_method: :id, include_blank: true %>
+              <%= f.input :date_from, as: :date_picker %>
+              <%= f.input :date_to, as: :date_picker %>
+              <%= f.input :description, as: :text %>
+              <%= f.hidden_field :kind, value: :surprise %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit 'Close', 'data-dismiss' => 'modal', class: 'btn btn-default' %>
+          <%= f.submit 'Save', class: 'btn btn-success' %>
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      <%- end -%>
+    </div>
+  </div>
+</div>
