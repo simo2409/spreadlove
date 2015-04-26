@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :story, :only => :show
+
   devise_for :users
   root to: "publics#home"
 
