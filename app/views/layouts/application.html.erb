@@ -22,9 +22,12 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= render partial: 'layouts/menu' %>
+    <%- if current_page?(controller: 'stories', action: 'show') -%>
+      <%= yield :top_content %>
+    <%- else -%>
+      <%= render partial: 'layouts/menu' %>
+    <%- end -%>
     <div class="container">
-      
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>

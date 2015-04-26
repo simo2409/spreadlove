@@ -1,3 +1,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootflat";
+
+html, body {background: #E6E9ED !important;}
+.image-bg-fluid-height {
+  background: url('https://placehold.it/960x300') no-repeat center center scroll;
+  margin: 0 auto;
+  height: 300px;
+}
+#people-list {
+  width: 245px;
+  li {
+    margin: 0 5px;
+  }
+}
+#add-fact {
+  margin-top: 10px;
+}

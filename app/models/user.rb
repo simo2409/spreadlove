@@ -20,7 +20,9 @@ class User < ActiveRecord::Base
   ### END Custom validations
   
   ### Instance methods
-  
+    def create_new_story!
+      self.stories.create!
+    end
   ### END instance methods
   
   ### Class methods

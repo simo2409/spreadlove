@@ -1,2 +1,71 @@
-<h1>Stories#show</h1>
-<p>Find me in app/views/stories/show.html.erb</p>
+<%- content_for(:top_content) do -%>
+  <header class="image-bg-fluid-height">
+    <div>
+      <ul class="center-block list-unstyled list-inline" id="people-list">
+        <li>
+          <img src="https://placehold.it/100/6FD5FF/000000" class="img-circle">
+          <p class="text-center">Simone D.</p>
+        </li>
+        <li>
+          <img src="https://placehold.it/100/FD75FF/000000" class="img-circle">
+          <p class="text-center">Giulia C.</p>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="text-center" id="add-fact">
+        <div class="btn-group">
+          <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span class="glyphicon glyphicon-plus"></span>
+            Add <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-gift"></span>
+                Surprise
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-plane"></span>
+                Travel
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-check"></span>
+                Thing done together
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-briefcase"></span>
+                Common project
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-asterisk"></span>
+                Argument
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-glass"></span>
+                Eating
+              </a>
+            </li>
+            <!-- <li class="divider"></li>
+            <li><a href="#">Separated link</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<%- end -%>
+
+<div class="row"><div class="col-md-12"><div class="timeline"><dl><dt>Apr 2014</dt><dd class="pos-right clearfix"><div class="circ"></div><div class="time">Apr 14</div><div class="events"><div class="pull-left"><img class="events-object img-rounded" src="img/photo-1.jpg"></div><div class="events-body"><h4 class="events-heading">Bootstrap</h4><p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p></div></div></dd><dd class="pos-left clearfix"><div class="circ"></div><div class="time">Apr 10</div><div class="events"><div class="pull-left"><img class="events-object img-rounded" src="img/photo-2.jpg"></div><div class="events-body"><h4 class="events-heading">Bootflat</h4><p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p></div></div></dd><dt>Mar 2014</dt><dd class="pos-right clearfix"><div class="circ"></div><div class="time">Mar 15</div><div class="events"><div class="pull-left"><img class="events-object img-rounded" src="img/photo-3.jpg"></div><div class="events-body"><h4 class="events-heading">Flat UI</h4><p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p></div></div></dd><dd class="pos-left clearfix"><div class="circ"></div><div class="time">Mar 8</div><div class="events"><div class="pull-left"><img class="events-object img-rounded" src="img/photo-4.jpg"></div><div class="events-body"><h4 class="events-heading">UI design</h4><p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p></div></div></dd></dl></div></div></div>
