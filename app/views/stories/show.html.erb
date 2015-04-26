@@ -1,5 +1,5 @@
 <%- content_for(:top_content) do -%>
-  <header class="image-bg-fluid-height">
+  <header class="image-bg-fluid-height" <%= @story.header_url ? raw("style=\"background: url('#{@story.header_url}') no-repeat center center scroll;\"") : '' %>>
     <div>
       <ul class="center-block list-unstyled list-inline" id="people-list">
         <li>
@@ -63,6 +63,9 @@
             <li><a href="#">Separated link</a></li> -->
           </ul>
         </div>
+        <button type="button" class="btn btn-warning dropdown-toggle" data-target="#settings-modal" data-toggle="modal">
+            <span class="glyphicon glyphicon-cog"></span>
+          </button>
       </div>
     </div>
   </div>
@@ -91,7 +94,7 @@
               <div class="events">
                 <div class="pull-left">
                   <%- if fact.actor -%>
-                    <img class="events-object img-rounded" src="https://placehold.it/50x50">
+                    <img class="events-object img-rounded" src="https://placehold.it/45x45">
                   <%- else -%>
                     <%# No actor, use fact's image %>
                     <span class="events-object glyphicon glyphicon-gift img-rounded btn-lg" style="background-color: #CCC;"></span>
@@ -170,3 +173,4 @@
 </div>
 
 <%= render partial: 'facts/all_modals', locals: {:story => @story} %>
+<%= render partial: 'settings', locals: {:story => @story} %>

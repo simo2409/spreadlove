@@ -10,7 +10,7 @@ class Fact < ActiveRecord::Base
   
   # Validations
     validates :story_id, :date_from, :kind, presence: true
-    validates :actor_id, inclusion: {in: ->(fact) {fact.story.users.pluck(:id)}}
+    validates :actor_id, inclusion: {in: ->(fact) {fact.story.users.pluck(:id)}}, allow_nil: true
   ### Custom filters
   
   ### END Custom filters

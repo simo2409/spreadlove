@@ -1,4 +1,7 @@
 class Story < ActiveRecord::Base
+
+  mount_uploader :header, StoryHeaderUploader
+
   # Scopes
   
   # Relations

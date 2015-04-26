@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :stories, :only => [:create, :show] do
+  resources :stories, :only => [:create, :update, :show] do
     resources :facts, :only => [:create, :update, :destroy]
   end
 

@@ -22,7 +22,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%- if current_page?(controller: 'stories', action: 'show') -%>
+    <%- if @story && current_page?(story_path(@story)) -%>
       <%= yield :top_content %>
     <%- else -%>
       <%= render partial: 'layouts/menu' %>

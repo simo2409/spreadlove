@@ -5,7 +5,7 @@ class FactsController < ApplicationController
   before_action :get_fact_from_id, except: :create
 
   def create
-    @fact = @story.facts.create(params_for_item)
+    @fact = @story.facts.create!(params_for_item)
     redirect_to story_path(@story)
   end
 

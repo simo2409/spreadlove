@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426155958) do
+ActiveRecord::Schema.define(version: 20150426163152) do
 
   create_table "facts", force: :cascade do |t|
     t.integer  "story_id",    limit: 4,     null: false
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20150426155958) do
   end
 
   create_table "stories", force: :cascade do |t|
-    t.integer  "private",    limit: 4, default: 0
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.integer  "private",    limit: 4,   default: 0
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "header",     limit: 255
+    t.date     "date_from"
   end
 
   create_table "stories_users", force: :cascade do |t|
